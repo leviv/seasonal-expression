@@ -1,79 +1,47 @@
 //
 //  ContentView.swift
-//  Shared
-//
-//  Created by Jess Jiang on 1/5/22.
 //
 
 import SwiftUI
 import CoreData
 
-struct ContentView: View {
-    @Environment(\.managedObjectContext) private var viewContext
+enum TimeOfDay {
+    case morning
+    case day
+    case evening
+    case night
+    case none
+}
 
-    @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
-        animation: .default)
-    private var items: FetchedResults<Item>
+struct ContentView: View {
+
+    let currentTime = Date()
+    let timeOfDay: TimeOfDay = .none
 
     var body: some View {
-        NavigationView {
-            List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp!, formatter: itemFormatter)")
-                    } label: {
-                        Text(item.timestamp!, formatter: itemFormatter)
-                    }
-                }
-                .onDelete(perform: deleteItems)
+        //TODO: make sure date updates, currently doesn't change
+        ZStack {
+            //Background Color
+            Group {
+                LinearGradient(gradient: Gradient(colors: [.red, .yellow]), startPoint: .top, endPoint: .bottom).ignoresSafeArea()
             }
-            .toolbar {
-#if os(iOS)
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-#endif
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
-                    }
-                }
-            }
-            Text("Select an item")
+            Circle().path(in: CGRect(x: 0, y: 0, width: 100, height: 100))
+                .foregroundColor(.orange)
+                .animation(.spring()) //TODO: have fun w/ this
+
+            Text("it's currently \(currentTime, formatter: itemFormatter)")
+                .rotationEffect(Angle(degrees: 72))
+                .foregroundColor(.white)
+                .multilineTextAlignment(.center)
+                .animation(.easeInOut) //TODO: make wiggly if possible
+
         }
     }
 
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(context: viewContext)
-            newItem.timestamp = Date()
-
-            do {
-                try viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
-        }
-    }
-
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            offsets.map { items[$0] }.forEach(viewContext.delete)
-
-            do {
-                try viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
-        }
-    }
+    //TODO: return cool gradient based on what bucket time of day you're in
+//    func backgroundGradientForTimeOfDay() -> LinearGradient {
+//
+//    }
 }
 
 private let itemFormatter: DateFormatter = {
