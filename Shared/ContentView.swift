@@ -18,7 +18,7 @@ enum TimeOfDay {
 private var summerSolstice: Date = {
     let formatter = DateFormatter()
     formatter.dateFormat = "yyyy/MM/dd"
-    return formatter.date(from: "2022/06/2")!
+    return formatter.date(from: "2022/06/21")!
 }()
 
 // this might be the dumbest possible way to do this i honestly couldn't tell u
@@ -80,15 +80,13 @@ struct ContentView: View {
                 .path(in: CGRect(x: 0, y: 0, width: 50, height: 50))
             ////////////////////////////////
 
-            //this doesn't work at all LMFAO oops oh well
-            let daysLeft = Date().distance(to: summerSolstice).truncatingRemainder(dividingBy: 24)
+            let daysLeft = Int(Date().distance(to: summerSolstice) / (60 * 60 * 24))
             VStack {
                 Spacer()
                 VStack {
                     Text("today is \(Date(), formatter: dateFormatter)")
                     Text("\(daysLeft) days until summer solstice")
                 }
-//                .rotationEffect(Angle(degrees: 90))
                 .lineLimit(1)
             }
             .foregroundColor(.white)
