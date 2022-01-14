@@ -7,6 +7,10 @@
 
 import Foundation
 
+// https://sunrise-sunset.org/api
+// options include lat, lng and date (formatted as YYYY-MM-DD)
+let API_URL = "https://api.sunrise-sunset.org/json"
+
 struct Response: Codable {
     var results: Results
     var status: String
@@ -19,15 +23,11 @@ struct Results: Codable {
     var day_length: String
 }
 
-// https://sunrise-sunset.org/api
-// options include lat, lng and date (formatted as YYYY-MM-DD)
-let API_URL = "https://api.sunrise-sunset.org/json?lat=36.7201600&lng=-4.4203400"
-
 class Api : ObservableObject{
     @Published var fetchedData = [Response]()
     
     func loadData(completion:@escaping (Response) -> ()) {
-        guard let url = URL(string: "\(API_URL)=\(36.7201600)&lng=\(-4.4203400)") else {
+        guard let url = URL(string: "\(API_URL)?lat=\(36.7201600)&lng=\(-4.4203400)") else {
             print("Invalid url...")
             return
         }
