@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8AC63D3E27914E0A00DD35EB /* SunApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC63D3D27914E0A00DD35EB /* SunApi.swift */; };
+		8AC63D3F27914E0A00DD35EB /* SunApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC63D3D27914E0A00DD35EB /* SunApi.swift */; };
 		D41CDAED2786853E00A8BE01 /* seasonal_expression.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D41CDADA2786853800A8BE01 /* seasonal_expression.xcdatamodeld */; };
 		D41CDAEE2786853E00A8BE01 /* seasonal_expression.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D41CDADA2786853800A8BE01 /* seasonal_expression.xcdatamodeld */; };
 		D41CDAEF2786853E00A8BE01 /* seasonal_expressionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41CDADC2786853800A8BE01 /* seasonal_expressionApp.swift */; };
@@ -20,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8AC63D3D27914E0A00DD35EB /* SunApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunApi.swift; sourceTree = "<group>"; };
 		D41CDADB2786853800A8BE01 /* Shared.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared.xcdatamodel; sourceTree = "<group>"; };
 		D41CDADC2786853800A8BE01 /* seasonal_expressionApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = seasonal_expressionApp.swift; sourceTree = "<group>"; };
 		D41CDADD2786853800A8BE01 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -65,6 +68,7 @@
 				D41CDADE2786853800A8BE01 /* Persistence.swift */,
 				D41CDADF2786853E00A8BE01 /* Assets.xcassets */,
 				D41CDADA2786853800A8BE01 /* seasonal_expression.xcdatamodeld */,
+				8AC63D3D27914E0A00DD35EB /* SunApi.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -187,6 +191,7 @@
 				D41CDAED2786853E00A8BE01 /* seasonal_expression.xcdatamodeld in Sources */,
 				D41CDAF32786853E00A8BE01 /* Persistence.swift in Sources */,
 				D41CDAEF2786853E00A8BE01 /* seasonal_expressionApp.swift in Sources */,
+				8AC63D3E27914E0A00DD35EB /* SunApi.swift in Sources */,
 				D41CDAF12786853E00A8BE01 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -198,6 +203,7 @@
 				D41CDAEE2786853E00A8BE01 /* seasonal_expression.xcdatamodeld in Sources */,
 				D41CDAF42786853E00A8BE01 /* Persistence.swift in Sources */,
 				D41CDAF02786853E00A8BE01 /* seasonal_expressionApp.swift in Sources */,
+				8AC63D3F27914E0A00DD35EB /* SunApi.swift in Sources */,
 				D41CDAF22786853E00A8BE01 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

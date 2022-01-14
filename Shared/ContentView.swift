@@ -63,6 +63,8 @@ final class UpdateObject: ObservableObject {
 struct ContentView: View {
 
     @ObservedObject var update = UpdateObject()
+    @State var sunrise = ""
+    @State var sunset = ""
 
     var body: some View {
         ZStack {
@@ -86,6 +88,13 @@ struct ContentView: View {
                 VStack {
                     Text("today is \(Date(), formatter: dateFormatter)")
                     Text("\(daysLeft) days until summer solstice")
+                    Text("uwu \(sunrise) \(sunset)").onAppear() {
+                        Api().loadData { (responseData) in
+                            self.sunrise = responseData.results.sunrise
+                            self.sunset = responseData.results.sunset
+                            
+                        }
+                    }.navigationTitle("Book List")
                 }
                 .lineLimit(1)
             }
